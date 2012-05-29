@@ -1,0 +1,19 @@
+body {
+	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+
+.post-current {
+	border-left: 6px solid #636ee7;
+}
+
+.post-inner {
+	margin-left: 10px;
+	word-wrap: break-word;
+}
+
+.post-other {
+	
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-left: 6px solid #c3b8b8;
+}

@@ -801,23 +801,6 @@ label select {
   display: block;
 }
 
-
-
-.post-current {
-	border-left: 6px solid #636ee7;
-}
-
-.post-inner {
-	margin-left: 10px;
-}
-
-.post-other {
-	
-	margin-top: 10px;
-	margin-bottom: 10px;
-	border-left: 6px solid #c3b8b8;
-}
-
 input[type="image"],
 input[type="checkbox"],
 input[type="radio"] {

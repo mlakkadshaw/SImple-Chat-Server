@@ -1,280 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js">
-  </script>
-    <meta charset="utf-8">
-    <title>Chat Server </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    
-    <script type="text/javascript">
+	<head>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<meta charset="utf-8">
+		<title>Chat Server </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-32151073-1']);
-  _gaq.push(['_trackPageview']);
+		<script type="text/javascript">
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-32151073-1']);
+			_gaq.push(['_trackPageview']);
 
-</script>
-    
-    <!-- Le styles -->
-    <link href="stylesheets/bootstrap.css" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
-    <link href="stylesheets/bootstrap-responsive.css" rel="stylesheet">
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+		</script>
 
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-  </head>
+		<!-- Le styles -->
+		<link href="stylesheets/bootstrap.css" rel="stylesheet">
+		<link href="stylesheets/style.css" rel="stylesheet">
+		<link href="stylesheets/bootstrap-responsive.css" rel="stylesheet">
 
-  <body>
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">Lets Chat</a>
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+	</head>
 
-        </div>
-      </div>
-    </div>
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="brand" href="#">Lets Chat</a>
+				</div>
+			</div>
+		</div>
 
-   <div class="container-fluid">
-     <div class="row-fluid">
-       <div class="span10">
-         <!--Body content-->
-         
-         <div id="livechat" class="well" style="min-height:460px;
-">
-         
-   
-           
-           
-         
-         </div>
-         
-       </div>
-       
-       <div class="span2">
-         <!--Sidebar content-->
-       	
-       	<div id="users_online">
-       	<ul id="online">
-     
-       	</ul>
-       	</div>
-       
-       </div>
-       
-       
-     </div>
-   </div> <!-- /container -->
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span10">
+					<!--Body content-->
 
-<div class="navbar navbar-fixed-bottom">
-<div class="navbar-inner">
-<div class="container">
-<a class="brand"></a>
-<form class="navbar-form">
+					<div id="livechat" class="well" style="min-height:460px;"></div>
+
+				</div>
+
+				<div class="span2">
+					<!--Sidebar content-->
+
+					<div id="users_online">
+						<ul id="online"></ul>
+					</div>
+
+				</div>
 
 
-<input type="text" id="username" placeholder="Enter username" style="margin-bottom: 3px;" />
+			</div>
+		</div> <!-- /container -->
 
+		<div class="navbar navbar-fixed-bottom">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand"></a>
+					<form class="navbar-form">
+						<input type="text" id="username" placeholder="Enter username" style="margin-bottom: 3px;" />
+						<input class="span8" type="text" id="message" placeholder="Be nice" style="margin-bottom: 3px;" />
+						<input class="btn btn-primary span2" type="button" id="send" value="Send" />
+					</form>
+				</div>
+			</div>
+		</div>
 
-<input class="span8" type="text" id="message" placeholder="Be nice" style="margin-bottom: 3px;" />
-<input class="btn btn-primary span2" type="button" id="send" value="Send" />
-</form>
-</div>
-</div>
-</div>
+		<!-- Le javascript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="/socket.io/socket.io.js"></script>
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="javascript/jquery.js"></script>
-    <script src="javascript/bootstrap-transition.js"></script>
-    <script src="javascript/bootstrap-alert.js"></script>
-    <script src="javascript/bootstrap-modal.js"></script>
-    <script src="javascript/bootstrap-dropdown.js"></script>
-    <script src="javascript/bootstrap-scrollspy.js"></script>
-    <script src="javascript/bootstrap-tab.js"></script>
-    <script src="javascript/bootstrap-tooltip.js"></script>
-    <script src="javascript/bootstrap-popover.js"></script>
-    <script src="javascript/bootstrap-button.js"></script>
-    <script src="javascript/bootstrap-collapse.js"></script>
-    <script src="javascript/bootstrap-carousel.js"></script>
-    <script src="javascript/bootstrap-typeahead.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    
-    <script>
-    var user = null;
-    $(function () {
-    
-   
-    
-    	var socket = io.connect(document.location.origin);
-    	
-    	socket.on('news', function (data) {
-      	console.log(data);
-     	});
-     	
-     	//check weather username is stored in the session, if yes then directly authenticate the user
-     	if(sessionStorage.username != undefined)
-     	{
-     		$('#username').hide(sessionStorage.username);
-     		$('.brand').html();
-     		$('.brand').show();
-     		$("#message").show();
-     		$("#message").focus();
-     		socket.emit('adduser', sessionStorage.username);
-     	}
-     	else {
-		//hiding the brand
-		$('.brand').hide();
-		$('#message').hide();
-		$("#username").focus();
-		
-		}	
-     	
-     	function addUser() {
-     		if($('#username').val() != "")
-     		{
-     			var usr = $('#username').val();
-     			var safe = usr.replace(/&/g, '&amp;').replace(/</g, '&lt;')
-     			                      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-     			sessionStorage.username = safe;
-     			socket.emit('adduser', sessionStorage.username);
-     		}
-     		return;
-     	}
-     	
-     	$("#send").click(
-     	function() {
-     	console.log("Send pressed");
-     	//check if username is null if yes then fire addUsername event and send the username
-     	if(sessionStorage.username === undefined)
-     	{
-     		addUser();
-     		return;
-     	}
-     	
-     	//handle message send
-     	var msg = $('#message').val();
-     	if(msg != "")
-     	{
-     		var safe = msg.replace(/&/g, '&amp;').replace(/</g, '&lt;')
-     		                      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-     		console.log("message is not null");
-     		socket.emit('message', {message: safe, user: sessionStorage.username, timestamp: new Date()}); 
-     	}
-     	});
-     	
-     	//handle enter key event on username textbox
-     	$('#username').keydown(function (e) {
-     		if(e.which === 13)
-     		{
-     			addUser();
-     		}
-     	});
-     	
-     	//handle enter key event on messagebox
-     	$("#message").keydown(function (e) {
-     	if(e.which === 13)
-     	{
-     		//handle message send
-     		var msg = $('#message').val();
-     		$('#message').val('');
-     		if(msg != "")
-     		{
-     			var safe = msg.replace(/&/g, '&amp;').replace(/</g, '&lt;')
-     			                      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-     			console.log("message is not null");
-     			socket.emit('message', {message: safe, user: user, timestamp: new Date()}); 
-     		}
-     	}
-     	});
-     	
-     	socket.on('userAdded', function(data) {
-     	//add banner containing the username
-     	$('#username').hide();
-     	$('.brand').html(data.username);
-     	$('.brand').show();
-     	$("#message").show();
-     	$("#message").focus();
-     	user = data.username;
-     	});
-     	
-     	socket.on('updateUsers', function (data) {
-     	if(data != null)
-     	{
-     		$('#online').html("");
-     		for(var key in data.usernames)
-     		{
-     			//add the user to the list of online users
-     			$('#online').append("<li>"+key+"</li>");
-     		}
-     	}
-     	
-     	}); 
-     
-     //load history
-     socket.on('loadHistory', function(data) {
-     
-     for(var i=0; i<data.length; i++)
-     {
-     		var html = "<div class='post-other'> <div class='post-inner'><b>"
-     		+ data[i].user + "</b> "+ data[i].message + "</div></div>";
-     		
-     		$('#livechat').append(html);
-     }
-     });
-     
-     socket.on('update',function (data) {
-     console.log("updatechat called");
-     	if(data.user === user)
-     	{
-     		var html = "<div class='post-current'> <div class='post-inner'><b>"
-     		+ data.user + "</b> "+ data.message + "</div></div>";
-     		
-     		$('#livechat').append(html);
-     		
-     	} else {
-     	
-     		var html = "<div class='post-other'> <div class='post-inner'><b>"
-     		+ data.user + "</b> "+ data.message + "</div></div>";
-     		
-     		$('#livechat').append(html);
-     	}
-     	
-     });
-     
-    
-   
-     
-   });
-   
-	
-    </script>
+		<script>
+			var user = null;
+			$(function () {
+				var socket = io.connect(document.location.origin);
+				socket.on('news', function (data) {
+					console.log(data);
+				});
 
-  </body>
+				//check weather username is stored in the session, if yes then directly authenticate the user
+				if(sessionStorage.username != undefined){
+					$('#username').hide(sessionStorage.username);
+					$('.brand').html();
+					$('.brand').show();
+					$("#message").show();
+					$("#message").focus();
+					socket.emit('adduser', sessionStorage.username);
+				}
+				else {
+					//hiding the brand
+					$('.brand').hide();
+					$('#message').hide();
+					$("#username").focus();
+				}	
+
+				function addUser() {
+					if($('#username').val() != ""){
+						var usr = $('#username').val();
+						var safe = usr.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+						.replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+						sessionStorage.username = safe;
+						socket.emit('adduser', sessionStorage.username);
+					}
+					return;
+				}
+
+				$("#send").click(function() {
+					console.log("Send pressed");
+					//check if username is null if yes then fire addUsername event and send the username
+					if(sessionStorage.username === undefined){
+						addUser();
+						return;
+					}
+					//handle message send
+					var msg = $('#message').val();
+					if(msg != ""){
+						var safe = msg.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+						.replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+						console.log("message is not null");
+						socket.emit('message', {message: safe, user: sessionStorage.username, timestamp: new Date()}); 
+					}
+				});
+
+				//handle enter key event on username textbox
+				$('#username').keydown(function (e) {
+					if(e.which === 13){
+						addUser();
+					}
+				});
+
+				//handle enter key event on messagebox
+				$("#message").keydown(function (e) {
+					if(e.which === 13){
+						//handle message send
+						var msg = $('#message').val();
+						$('#message').val('');
+						if(msg != ""){
+							var safe = msg.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+							.replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+							console.log("message is not null");
+							socket.emit('message', {message: safe, user: user, timestamp: new Date()}); 
+						}
+					}
+				});
+
+				socket.on('userAdded', function(data) {
+					//add banner containing the username
+					$('#username').hide();
+					$('.brand').html(data.username);
+					$('.brand').show();
+					$("#message").show();
+					$("#message").focus();
+					user = data.username;
+				});
+
+				socket.on('updateUsers', function (data) {
+					if(data != null){
+						$('#online').html("");
+						for(var key in data.usernames){
+							//add the user to the list of online users
+							$('#online').append("<li>"+key+"</li>");
+						}
+					}
+				}); 
+
+				//load history
+				socket.on('loadHistory', function(data) {
+
+					for(var i=0; i<data.length; i++){
+						var html = "<div class='post-other'> <div class='post-inner'><b>"
+						+ data[i].user + "</b> "+ data[i].message + "</div></div>";
+						$('#livechat').append(html);
+					}
+				});
+
+				socket.on('update',function (data) {
+					console.log("updatechat called");
+					var postClass;
+					if(data.user === user){
+						postClass = "post-current";
+					} else {
+						postClass = "post-other";
+					}
+					var html = "<div class='" + postClass + "'> <div class='post-inner'><b>"
+					+ data.user + "</b> " + data.message + "</div></div>";
+					$('#livechat').append(html);
+					$("html, body").animate({ scrollTop: $(document).height() }, "slow");
+				});
+			});
+		</script>
+	</body>
 </html>
