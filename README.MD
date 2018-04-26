@@ -26,7 +26,7 @@ eg http://localhost:3000/12
 * Create a index page that allows random generation of unique urls
 
 **NOTE: Security Issue**
-This is not secure as the client directly calls the server to addUser and sendMessage.
+here is no guarantee or warranty associated with this software and if there are any security loop holes then I am not responsible.
 A possible implementation to solve this problem would be to remove socket.emit("adduser"), and storing the username in the client session storage and allow the server to fetch the username from the session storage (or a cookie).
 
 Another problem is when the user sends message, it directly calls the server, to prevent this we can send the message as "post" to a specific url and the server can fetch the message from the response.
